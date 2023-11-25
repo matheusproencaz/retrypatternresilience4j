@@ -1,0 +1,22 @@
+#resilience4j:
+#  retry:
+#    instances:
+#      serviceName:
+#        maxRetryAttempts: 5
+#        waitDuration: 5s
+#        #resultPredicate: io.github.mpz.retrypattern.retry.conditional.ConditionalRetryPredicate
+#        retryExceptions:
+#          - org.springframework.web.client.HttpServerErrorException
+#          - java.lang.Exception
+
+resilience4j:
+  retry:
+    instances:
+      serviceName:
+        maxRetryAttempts: 5
+        maxAttempts: 5
+        waitDuration: 1s
+        resultPredicate: io.github.mpz.retrypattern.retry.conditional.ConditionalRetryPredicate
+        #retryExceptions:
+          #- org.springframework.web.client.HttpServerErrorException
+          #- java.lang.Exception
